@@ -35,6 +35,8 @@ int main() {
     } else {
         printf("[$] %d found at position %d\n", key, result);
     }
+
+    free_array(arr);
 }
 
 int binary_search(array rx, int key) {

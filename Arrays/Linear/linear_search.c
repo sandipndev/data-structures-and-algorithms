@@ -42,6 +42,8 @@ int main() {
                  print_array(arr);
     }
 
+    free_array(arr);
+    free_array(results);
 }
 
 array linear_search(array tx, int key) {
