@@ -43,7 +43,7 @@ void push (stack *rx, char key) {
 
 char pop (stack *rx) {
     if (is_empty(*rx)) {
-        printf("[!] Stack Underflow\n");
+        // printf("[!] Stack Underflow\n");
         return CHAR_MIN;
     }
     return rx->base[rx->TOP--];
@@ -51,7 +51,7 @@ char pop (stack *rx) {
 
 char peek (stack rx) {
     if (is_empty(rx)) {
-        printf("Nothing to peek\n");
+        // printf("Nothing to peek\n");
         return CHAR_MIN;
     }
     return rx.base[rx.TOP];

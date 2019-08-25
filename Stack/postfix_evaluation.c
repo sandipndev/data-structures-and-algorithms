@@ -7,23 +7,8 @@
 #include <limits.h>
 #include "int_stack_proto.h"
 
-int is_operator(char *x) {
-    return strcmp(x, "+\0")==0 || strcmp(x, "-\0")==0 || strcmp(x, "*\0")==0 || strcmp(x, "/\0")==0 || strcmp(x, "^\0")==0;
-}
-
-int calculate_result(int left, int right, char *operator) {
-    if (strcmp(operator, "+\0")==0) {
-        return left + right;
-    } else if (strcmp(operator, "-\0")==0) {
-        return left - right;
-    } else if (strcmp(operator, "*\0")==0) {
-        return left * right;
-    } else if (strcmp(operator, "/\0")==0) {
-        return left / right;
-    } else if (strcmp(operator, "^\0")==0) {
-        return pow(left, right);
-    }
-}
+int is_operator(char *);
+int calculate_result(int, int, char *);
 
 int main() {
     char str[STR_MAX];
@@ -66,5 +51,25 @@ int main() {
         printf("The entered postfix expression is incorrect.\n");
     }
 
+    free_stack(operand_stk);
+
     return 0;
+}
+
+int is_operator(char *x) {
+    return strcmp(x, "+\0")==0 || strcmp(x, "-\0")==0 || strcmp(x, "*\0")==0 || strcmp(x, "/\0")==0 || strcmp(x, "^\0")==0;
+}
+
+int calculate_result(int left, int right, char *operator) {
+    if (strcmp(operator, "+\0")==0) {
+        return left + right;
+    } else if (strcmp(operator, "-\0")==0) {
+        return left - right;
+    } else if (strcmp(operator, "*\0")==0) {
+        return left * right;
+    } else if (strcmp(operator, "/\0")==0) {
+        return left / right;
+    } else if (strcmp(operator, "^\0")==0) {
+        return pow(left, right);
+    }
 }
