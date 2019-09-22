@@ -1,4 +1,4 @@
-/* The logic of stack using linked list is quite simple. A stack is First In First Out (FIFO).
+/* The logic of stack using linked list is quite simple. A stack is Last In First Out (LIFO).
    If, we consider the head element (first element) of the linked list as Top of Stack,
    we can just insert_first to push an element and delete_first to pop an element.
 
