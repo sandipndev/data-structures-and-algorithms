@@ -1,4 +1,7 @@
-/* A queue is a FIFO (First in First Out) data structure. It can be easily implemented using a Linked List.
+/* 
+   * Also Circular Queue
+
+   A queue is a FIFO (First in First Out) data structure. It can be easily implemented using a Linked List.
    [! Think] Considering the head element as FRONT of queue, we need just the functions delete_first and insert_last.
    (Vise versa also possible, where head element is REAR and we use insert_first and delete_last)
 
