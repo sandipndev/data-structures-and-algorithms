@@ -58,7 +58,7 @@ node *insert_first(node *head, int key) {
 }
 
 node *insert_last(node *head, int key) {
-	node *temp, *p = head;
+	node *temp;
 	temp = create_node(key);
 	if (head == NULL) {
 		head = temp;
@@ -68,7 +68,7 @@ node *insert_last(node *head, int key) {
 		}
 		head->link = temp;
 	}
-	return p;
+	return head;
 }
 
 node *insert_before(node *head, int data, int key) {
