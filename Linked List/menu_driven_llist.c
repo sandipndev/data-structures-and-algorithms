@@ -19,7 +19,7 @@ int main() {
 	printf("9. Delete any element\n");
 	printf("10. Reverse Linked List\n");
 	printf("11. Insert Element in Sorted Manner\n");
-	// printf("12. Sort\n");
+	printf("12. Sort\n");
 
 
 	while (1) {
@@ -67,9 +67,9 @@ int main() {
 				scanf("%d", &key);
 				head = insert_elem_sorted(head, key);
 			break;
-			// case 12: printf("Sorted List: ");
-			// 	display_list(sort(head));
-			// break;
+			case 12: printf("Sorted List: ");
+				display_list(sort(head));
+			break;
 			default: 
 				printf("Goodbye!\n");
 				free(head);

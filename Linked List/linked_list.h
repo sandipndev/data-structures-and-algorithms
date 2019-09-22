@@ -200,25 +200,34 @@ node *reverse(node *head) {
 }
 
 node *sort(node *head) {
-	node *p, *q, *m;
-	p = head;
-	int temp;
-	while ((p->link) != NULL) {
-		m = p;
-		q = p->link;
-		while(q!=NULL){
-			if(q->data < m->data) {
-				m = q;
-			}
-			q = q->link;
-		}
-		if (m!=p) {
-			temp = p->data;
-			p->data = q->data;
-			q->data = temp;
-		}
-		p = p->link;
+	// SORTS INPLACE
+
+	// empty or only one element is already sorted
+	if (head == NULL || head->link == NULL) {
+		return head;
 	}
+
+	node *i = head, *j, *min;
+	while ((i->link)->link != NULL) { // will run till second last element
+		min = i;
+		j = i->link;
+		while (j != NULL) {
+			if (min->data > j->data) {
+				min = j;
+			}
+			// updation
+			j = j->link;
+		}
+		if (min != i) {
+			// interchange min and i
+			int temp = min->data;
+			min->data = i->data;
+			i->data = temp;
+		}
+
+		// updation
+		i = i->link;
+	}
+
 	return head;
 }
-
