@@ -13,10 +13,30 @@ int main() {
     printf("?Cols: ");
     scanf("%d", &c);
 
+    matrix mx = create_matrix(r, c);
+    printf("Enter the matrix:\n");
+    matrix_user_input(mx);
+
+    printf("You have entered:\n");
+    print_matrix(mx);
+
+    if (check_sparse(mx) == -1) {
+        printf("[X] Not a sparse matrix!\n");
+        return 0;
+    } else {
+        printf("[Y] Is a sparse matrix!\n");
+        printf("The Sparse Matrix for the same is:\n");
+        print_matrix(sparse_matrix_three_tuple(mx));
+    }
+
+    free_matrix(mx);
+
     return 0;
 }
 
 int check_sparse(matrix rx) {
+    // If sparse, returns number of zero positions, else returns -1
+
     int i, j, n_zeros=0;
     for (i=0; i<rx.rows; i++) {
         for (j=0; j<rx.cols; j++) {
