@@ -200,7 +200,6 @@ node *reverse(node *head) {
 }
 
 node *sort(node *head) {
-	// SORTS INPLACE
 
 	// empty or only one element is already sorted
 	if (head == NULL || head->link == NULL) {
@@ -208,7 +207,7 @@ node *sort(node *head) {
 	}
 
 	node *i = head, *j, *min;
-	while ((i->link)->link != NULL) { // will run till second last element
+	while (i->link != NULL) { // will run till second last element
 		min = i;
 		j = i->link;
 		while (j != NULL) {
