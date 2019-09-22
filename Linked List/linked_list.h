@@ -18,6 +18,15 @@ node *create_node(int key) {
 	return temp;
 }
 
+void free_list(node *head) {
+	node *p=head, *q;
+	while(p != NULL) {
+		q = p->link;
+		free(p);
+		p = q;
+	}
+}
+
 void display_list(node *head) {
 	printf("[ ");
 	while (head!=NULL) {
