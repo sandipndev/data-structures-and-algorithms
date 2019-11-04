@@ -62,10 +62,56 @@ tnode *create_tree_user_input() {
 
 }
 
+void prefix_print(tnode *root) {
+    if (root != NULL) {
+        printf("%d,", root->VAL);
+        prefix_print(root->LEFT);
+        prefix_print(root->RIGHT);
+    }
+}
+
 void infix_print(tnode *root) {
     if (root != NULL) {
         infix_print(root->LEFT);
         printf("%d,", root->VAL);
         infix_print(root->RIGHT);
+    }
+}
+
+void postfix_print(tnode *root) {
+    if (root != NULL) {
+        postfix_print(root->LEFT);
+        postfix_print(root->RIGHT);
+        printf("%d,", root->VAL);
+    }
+}
+
+tnode *bst_insert(tnode *root, int key) {
+    if (root == NULL) {
+        return create_node(key);
+    } else {
+
+        if (key == root->VAL) {
+            // Equal keys not supported in bst
+        }
+
+        else if (key>root->VAL && root->RIGHT==NULL) {
+            root->RIGHT = create_node(key);
+        }
+
+        else if (key<root->VAL && root->LEFT==NULL) {
+            root->LEFT = create_node(key);
+        }
+
+        else if (key>root->VAL) {
+            bst_insert(root->RIGHT, key);
+        }
+
+        else if (key<root->VAL) {
+            bst_insert(root->LEFT, key);
+        }
+
+        return root;
+        
     }
 }
